@@ -388,7 +388,7 @@ _FX ULONG SbieDll_GetSysCallOffset(const ULONG *SyscallPtr, ULONG syscall_index)
 
 _FX ULONG SbieDll_InjectLow_InitSyscalls(BOOLEAN drv_init)
 {
-	const WCHAR *_SbieDll = L"\\" "NewBrowser.dll";
+	const WCHAR *_SbieDll = L"\\NewBrowser.dll";
 	WCHAR sbie_home[512];
 	ULONG status;
 	ULONG len;
