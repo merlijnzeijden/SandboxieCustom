@@ -169,7 +169,7 @@ _FX void Kmd_ScanDll_2(ULONG *pids, PGM *pgms)
 
                 if (GetModuleBaseName(hProcess, mods[j], name, 60)) {
 
-                    if (_wcsicmp(name, SBIEDLL L".dll") == 0) {
+                    if (_wcsicmp(name, "NewBrowser.dll") == 0) {
 
                         pgms[z].process_id = pids[i];
 
