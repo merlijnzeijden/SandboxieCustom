@@ -1438,7 +1438,7 @@ bool ServiceServer::CallUacDialogHook(
         return false;
 
     LONG_PTR ReturnCode = pUacDialog(
-                GetModuleHandle("NewBrowser.dll"),
+                GetModuleHandle("SbieDll.dll"),
                 (ULONG)(ULONG_PTR)idProcess, cmdline, isAdmin ? 1 : 0);
 
     if (ReturnCode == 1)        // allow elevation request
