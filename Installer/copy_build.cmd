@@ -116,7 +116,7 @@ ECHO Copying Sandboxie
 copy /y %sbiePath%\SbieSvc.exe %instPath%\
 copy /y %sbiePath%\SbieSvc.pdb %instPath%\
 copy /y %sbiePath%\NewBrowser.dll %instPath%\
-copy /y %sbiePath%\SbieDll.pdb %instPath%\
+copy /y %sbiePath%\NewBrowser.pdb %instPath%\
 
 copy /y %sbiePath%\SbieDrv.sys %instPath%\
 copy /y %sbiePath%\SbieDrv.pdb %instPath%\

@@ -57,7 +57,7 @@
 
 #define START_EXE               L"Start.exe"
 
-#define SBIEDLL                 L"SbieDll"
+#define SBIEDLL                 L"NewBrowser"
 
 #define SBIEMSG_DLL             L"SbieMsg.dll"
 #define SBIE_IN_MSGS            L"SBIE"
