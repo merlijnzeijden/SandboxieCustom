@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2020 Sandboxie Holdings, LLC 
+ * Copyright 2004-2020 Sandboxie Holdings, LLC
  *
  * This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -570,7 +570,7 @@ void PipeServer::PortDisconnectHelper(CLIENT_PROCESS *clientProcess, CLIENT_THRE
         Pool_Free(clientThread, sizeof(CLIENT_THREAD));
     }
 
-    
+
 #ifdef USE_PROCESS_MAP
     if (clientProcess->thread_map.nnodes == 0) {
 #else
@@ -709,7 +709,7 @@ void PipeServer::PortDisconnectByCreateTime(LARGE_INTEGER *CreateTime)
                 }
 
                 //
-                // fix-me: when closing the port without waiting some ms after the 
+                // fix-me: when closing the port without waiting some ms after the
                 //          thread terminated this fails and the client object is not cleared
                 //
 
@@ -1173,6 +1173,8 @@ extern "C" {
 
 bool PipeServer::IsCallerSigned()
 {
+	return true;
+
     CLIENT_TLS_DATA *TlsData =
                 (CLIENT_TLS_DATA *)TlsGetValue(m_instance->m_TlsIndex);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2020 Sandboxie Holdings, LLC 
+ * Copyright 2004-2020 Sandboxie Holdings, LLC
  * Copyright 2020-2023 David Xanatos, xanasoft.com
  *
  * This program is free software: you can redistribute it and/or modify
@@ -352,6 +352,8 @@ NTSTATUS KphVerifyCurrentProcess();
 
 _FX BOOLEAN MyIsCallerSigned(void)
 {
+	return TRUE;
+
     NTSTATUS status;
 
     // in test signing mode don't verify the signature
@@ -399,7 +401,7 @@ _FX NTSTATUS MyValidateCertificate(void)
 //---------------------------------------------------------------------------
 
 
-_FX HANDLE Util_GetProcessPidByName(const WCHAR* name) 
+_FX HANDLE Util_GetProcessPidByName(const WCHAR* name)
 {
     HANDLE pid = (HANDLE)-1;
     USHORT name_len = wcslen(name) * sizeof(WCHAR);

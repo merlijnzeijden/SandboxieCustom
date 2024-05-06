@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2020 Sandboxie Holdings, LLC 
+ * Copyright 2004-2020 Sandboxie Holdings, LLC
  * Copyright 2020-2021 David Xanatos, xanasoft.com
  *
  * This program is free software: you can redistribute it and/or modify
@@ -342,7 +342,7 @@ _FX NTSTATUS Session_Api_Leader(PROCESS *proc, ULONG64 *parms)
 
         if (proc)
             status = STATUS_NOT_IMPLEMENTED;
-        else if (!MyIsCallerSigned()) 
+        else if (!MyIsCallerSigned())
             status = STATUS_INVALID_SIGNATURE; // STATUS_ACCESS_DENIED
         else {
 
@@ -564,7 +564,7 @@ _FX void Session_MonitorPutEx(ULONG type, const WCHAR** strings, ULONG* lengths,
 		for(int i=0; strings[i] != NULL; i++)
 			data_len += ((lengths ? lengths [i] : wcslen(strings[i])) + 1) * sizeof(WCHAR);
 
-        
+
 		//[Time 8][Type 4][PID 4][TID 4][Data n*2](0xFFFF[ID1][LEN1][DATA1]...[IDn][LENn][DATAn])
 		SIZE_T entry_size = 8 + 4 + 4 + 4 + data_len;
 
@@ -760,7 +760,7 @@ _FX NTSTATUS Session_Api_MonitorPut2(PROCESS *proc, ULONG64 *parms)
     // if we don't need to check_object_exists we can use a shortcut
     //
 
-    if (!args->check_object_exists.val64){ 
+    if (!args->check_object_exists.val64){
         const WCHAR* strings[3] = { args->is_message.val64 ? Driver_Empty : log_data, args->is_message.val64 ? log_data : NULL, NULL };
         ULONG lengths[3] = { args->is_message.val64 ? 0 : log_len, args->is_message.val64 ? log_len : 0, 0 };
         Session_MonitorPutEx(log_type | MONITOR_USER, strings, lengths, proc->pid, PsGetCurrentThreadId());
@@ -994,7 +994,7 @@ _FX NTSTATUS Session_Api_MonitorGetEx(PROCESS* proc, ULONG64* parms)
     log_buffer = (WCHAR*)log_data->Buffer;
     if (!log_buffer)
         return STATUS_INVALID_PARAMETER;
-    
+
     status = STATUS_SUCCESS;
 
     session = Session_Get(FALSE, -1, &irql);
@@ -1012,7 +1012,7 @@ _FX NTSTATUS Session_Api_MonitorGetEx(PROCESS* proc, ULONG64* parms)
         CHAR* read_ptr = NULL;
         //if (seq_num != NULL)
         //    read_ptr = log_buffer_get_next(*seq_num, session->monitor_log);
-        //else 
+        //else
         if (session->monitor_log->buffer_used > 0)
             read_ptr = session->monitor_log->buffer_start_ptr;
 
@@ -1055,13 +1055,13 @@ _FX NTSTATUS Session_Api_MonitorGetEx(PROCESS* proc, ULONG64* parms)
             data_size = (log_data->MaximumLength - 1);
             status = STATUS_BUFFER_TOO_SMALL;
         }
-        
+
         log_data->Length = (USHORT)data_size;
         ProbeForWrite(log_buffer, data_size + 1, sizeof(WCHAR));
         log_buffer_get_bytes((CHAR*)log_buffer, data_size, &read_ptr, session->monitor_log);
 
         log_buffer[data_size / sizeof(wchar_t)] = L'\0';
-        
+
 
         //if (seq_num != NULL)
         //    *seq_num = seq_number;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2020 Sandboxie Holdings, LLC 
+ * Copyright 2004-2020 Sandboxie Holdings, LLC
  * Copyright 2020 David Xanatos, xanasoft.com
  *
  * This program is free software: you can redistribute it and/or modify
@@ -1102,7 +1102,7 @@ _FX NTSTATUS Api_SetServicePort(PROCESS *proc, ULONG64 *parms)
     }
 
     if (NT_SUCCESS(status) && !MyIsCallerSigned()) {
-    
+
         status = STATUS_INVALID_SIGNATURE;
     }
 
@@ -1236,7 +1236,7 @@ _FX NTSTATUS Api_ProcessExemptionControl(PROCESS *proc, ULONG64 *parms)
 
 	if (proc) // is caller sandboxed?
 		return STATUS_NOT_IMPLEMENTED;
-    else if (!MyIsCallerSigned()) 
+    else if (!MyIsCallerSigned())
         status = STATUS_ACCESS_DENIED;
 
 	if (pArgs->process_id.val == 0)
@@ -1294,7 +1294,7 @@ _FX NTSTATUS Api_QueryDriverInfo(PROCESS* proc, ULONG64* parms)
 {
     NTSTATUS status = STATUS_SUCCESS;
     API_QUERY_DRIVER_INFO_ARGS *args = (API_QUERY_DRIVER_INFO_ARGS *)parms;
-	
+
     if (proc) {
         status = STATUS_NOT_IMPLEMENTED;
         goto finish;
